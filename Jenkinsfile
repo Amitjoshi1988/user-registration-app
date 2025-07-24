@@ -11,13 +11,13 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'mvn clean package -DskipTests'
+                bat 'mvn clean package -DskipTests'
             }
         }
         stage('Docker Build & Deploy') {
             steps {
-                sh 'docker-compose down'
-                sh 'docker-compose up -d --build'
+                bat 'docker-compose down'
+                bat 'docker-compose up -d --build'
             }
         }
     }
